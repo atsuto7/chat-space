@@ -1,5 +1,5 @@
 # chat-space
-## memberテーブル
+## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -10,7 +10,7 @@
 - belongs_to :group
 - belongs_to :user
 
-## groupテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -20,7 +20,7 @@
 - has_many :messages
 - has_many :users, through: :members
 
-## userテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -30,7 +30,7 @@
 - has_many :messages
 - has_many :groups, through: :members
 
-## messageテーブル
+## messagesテーブル
 
 |Column|Type|Option|
 |------|----|------|
