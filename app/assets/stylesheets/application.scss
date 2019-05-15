@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ @import "variavles";
+
+ @import "font-awesome";
+ 
+ @import "./reset";
+ 
+ 
+ @import "./body";
+
+  
+ @import "_left-content.scss";
+ 
+ @import "_right-content.scss";

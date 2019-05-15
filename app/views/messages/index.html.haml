@@ -1,0 +1,49 @@
+.left-content
+  .name
+    %p.name__user-name<seo
+    %form.name__submit
+      %label.name__submit__label
+        = link_to '#' do
+          %i(class="fas fa-edit")
+        = link_to '#' do
+          %i(class="fas fa-cog")
+  .group
+    .text-box
+      %p.text-box__group<test
+      %p.text-box__message<まだメッセージがありません
+    .text-box
+      %p.text-box__group<test
+      %p.text-box__message<まだメッセージがありません
+.right-content
+  .name
+    .header
+      .group
+        %p.group__title<test
+        %p.group__member<Member:atsuto7
+      = link_to '#' do
+        .edit-btn<Edit    
+  .message
+    .text
+      .text__user
+        %p.user-name<test_user
+        %p.int<2019
+        
+      .text__string
+        %p.text__string__message<
+          こんにちは
+    .text
+      .text__user
+        %p.user-name<test_user
+        %p.int<2019/7/22       
+      .text__string
+        %p.text__string__message<
+          こんばんは   
+  .kennsaku
+    .new-message
+      .input-box
+        %input(placeholder="type a message" class="input-box__text")
+        %form.input-box__form         
+          %label(class="input-box__form__image-label" for="message_image")
+            %i(class="far fa-image ")
+            %input(class="fa-image__input" type="file")
+      %input(class="message_submit-btn" type="submit" value="Send")                
