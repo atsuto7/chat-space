@@ -13,13 +13,13 @@
       .group {
         width: calc(100% - 100px);
        
-       .group__title {
+       &__title {
          font-size: 20px;
          color: #333333;
          padding-top: 35px;
 
        }
-       .group__member {
+       &__member {
          font-size: 12px;
          padding-top: 15px;
          color: #999999;
@@ -50,7 +50,7 @@
     padding-top: 6px;
     .text {
       padding: 0 40px;
-      .text__user {
+      &__user {
        display: flex;
        padding-top: 40px;
        
@@ -68,10 +68,10 @@
          
         }        
       }
-      .text__string {
+      &__string {
         padding-top: 10px;
         
-        .text__string__message {
+        &__message {
          font-size: 14px;
          color: #434a54;
         }
@@ -103,14 +103,14 @@
        height: 50px;
 
        
-       .input-box__text {
+       &__text {
          height: 50px;
          width: calc(100% - 70px);
          padding: 0 40px 0 10px;
          color: #434a54;
          border-style: none;
        }
-       .input-box__form {
+       &__form {
          font-size: 1.3rem;
          position: absolute;
          top: 15px;
@@ -118,7 +118,7 @@
          width: 50px;
          height: 25px;
          
-         .input-box__form__image-label {
+         &__image-label {
           
            font-size: 1.3rem;
            position: absolute;

@@ -11,15 +11,15 @@
     font-weight: bold;
     box-sizing: border-box;
 
-   .name__user-name {
+   &__user-name {
      font-size: 16px;
      color: #FFFFFF;
      line-height: 100px;
 
    }   
-   .name__submit {
+   &__submit {
      
-     .name__submit__label {
+     &__label {
 
        .fa-edit {
          font-size: 1.3rem;
@@ -63,7 +63,7 @@
          -webkit-font-smoothing: antialiased;
        }
      }
-     .name__submit__input {
+     &__input {
 
      }
    }
@@ -76,12 +76,12 @@
     padding-top: 20px;
     .text-box {
       padding: 0 20px;
-      .text-box__group {
+      &__group {
         font-size: 15px;
         color:  #FFFFFF;
         
       }
-      .text-box__message {
+      &__message {
         font-size: 11px; 
         color: #FFFFFF;
         padding-top: 5px;
