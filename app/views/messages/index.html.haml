@@ -9,12 +9,12 @@
         = link_to edit_user_path(current_user) do
           %i(class="fas fa-cog")
   .group
-    .text-box
-      %p.text-box__group<test
-      %p.text-box__message<まだメッセージがありません
-    .text-box
-      %p.text-box__group<test
-      %p.text-box__message<まだメッセージがありません
+    - current_user.groups.each do |group|
+      .text-box
+        = link_to group_messages_path(group) do
+          %p.text-box__group
+            = group.name
+          %p.text-box__message<まだメッセージがありません
 .right-content
   .name
     .header
