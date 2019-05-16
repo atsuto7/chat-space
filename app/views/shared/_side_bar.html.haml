@@ -9,9 +9,9 @@
         = link_to edit_user_path(current_user) do
           %i(class="fas fa-cog")
   .group
-    - current_user.groups.each do |group|
+    - current_user.groups.each do |group| 
       .text-box
         = link_to group_messages_path(group) do
           %p.text-box__group
             = group.name
-          %p.text-box__message<まだメッセージがありません 
+          %p.text-box__message<まだメッセージがありません     

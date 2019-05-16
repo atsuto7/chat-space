@@ -14,7 +14,8 @@
         = link_to group_messages_path(group) do
           %p.text-box__group
             = group.name
-          %p.text-box__message<まだメッセージがありません
+          %p.text-box__message
+            = group.show_last_message
 .right-content
   .name
     .header
@@ -23,28 +24,13 @@
         %p.group__member<Member:atsuto7
       = link_to '#' do
         .edit-btn<Edit    
-  .message
-    .text
-      .text__user
-        %p.user-name<test_user
-        %p.int<2019
-        
-      .text__string
-        %p.text__string__message<
-          こんにちは
-    .text
-      .text__user
-        %p.user-name<test_user
-        %p.int<2019/7/22       
-      .text__string
-        %p.text__string__message<
-          こんばんは   
-  .kennsaku
-    .new-message
-      .input-box
-        %input(placeholder="type a message" class="input-box__text")
-        %form.input-box__form         
-          %label(class="input-box__form__image-label" for="message_image")
-            %i(class="far fa-image ")
-            %input(class="fa-image__input" type="file")
-      %input(class="message_submit-btn" type="submit" value="Send")                
+  .messages
+    = render @messages
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
