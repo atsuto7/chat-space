@@ -39,8 +39,8 @@ $(function(){
   .done(function(data){
     var html = buildHTML(data);
     $('.ajax-message').append(html)
-    $('.form__message').val('')
-    $('.hidden').val('')
+    $('.form__message').val('').reset()
+    $('.hidden').val('').reset()
     $('.form__submit').prop('disabled', false); 
   })
   .fail(function(){
