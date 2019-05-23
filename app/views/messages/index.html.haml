@@ -1,21 +1,19 @@
 .left-content
   .name
-    %p.name__user-name
-      = current_user.name
+    %p.name__user-name<seo
     %form.name__submit
       %label.name__submit__label
-        = link_to new_group_path do
+        = link_to '#' do
           %i(class="fas fa-edit")
-        = link_to edit_user_path(current_user) do
+        = link_to '#' do
           %i(class="fas fa-cog")
   .group
-    - current_user.groups.each do |group|
-      .text-box
-        = link_to group_messages_path(group) do
-          %p.text-box__group
-            = group.name
-          %p.text-box__message
-            = group.show_last_message
+    .text-box
+      %p.text-box__group<test
+      %p.text-box__message<まだメッセージがありません
+    .text-box
+      %p.text-box__group<test
+      %p.text-box__message<まだメッセージがありません
 .right-content
   .name
     .header
@@ -24,15 +22,28 @@
         %p.group__member<Member:atsuto7
       = link_to '#' do
         .edit-btn<Edit    
-  .messages
-    = render @messages
-    .ajax-message
-    .scroll
-  .form
-    = form_for [@group, @message], html: {id: 'new_message'} do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
+  .message
+    .text
+      .text__user
+        %p.user-name<test_user
+        %p.int<2019
+        
+      .text__string
+        %p.text__string__message<
+          こんにちは
+    .text
+      .text__user
+        %p.user-name<test_user
+        %p.int<2019/7/22       
+      .text__string
+        %p.text__string__message<
+          こんばんは   
+  .kennsaku
+    .new-message
+      .input-box
+        %input(placeholder="type a message" class="input-box__text")
+        %form.input-box__form         
+          %label(class="input-box__form__image-label" for="message_image")
+            %i(class="far fa-image ")
+            %input(class="fa-image__input" type="file")
+      %input(class="message_submit-btn" type="submit" value="Send")                
