@@ -58,7 +58,4 @@ $('#user-search-result').on('click', '.chat-group-user__btn', function(){
 $('#user-defined-result').on('click', '.user-search-remove', function(){
   $(this).parent().remove();
   });
-  
-
-
 });
