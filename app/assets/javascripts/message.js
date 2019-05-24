@@ -3,7 +3,7 @@ $(function(){
     var img = (message.image.url !== null)? `<img src="${message.image.url}">` : '';
    
     var html = ` 
-               <div class="message">
+               <div class="message" data-id='${message.id}' >
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -22,6 +22,44 @@ $(function(){
                 
     return html;
   }
+  var reloadMessages = function() {
+    
+      var path = location.pathname
+      
+    if (path.includes("/messages")){
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $('.message:last').attr("data-id");
+    $.ajax({
+      //ルーティングで設定した通りのURLを指定
+      url: ('api/messages'),
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'get',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: { id:last_message_id }
+    })
+    .done(function(messages) {
+      //追加するHTMLの入れ物を作る
+      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+      if (messages.length !== 0) {
+      messages.forEach(function(message){
+        var html = buildHTML(message);
+        $('.ajax-message').append(html)
+      });
+        $('.messages').animate({
+          scrollTop: $(document).height()
+        })
+      
+    }
+    else {
+    }
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  }
+
+  };
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -48,7 +86,8 @@ $(function(){
   $('.messages').animate({
     scrollTop: $(document).height()
   })
-
 })
 
+// ドメイン以下のパス名が /sample/sample.html の場合に実行する内容 
+setInterval(reloadMessages, 5000);
 })
