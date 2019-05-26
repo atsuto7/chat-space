@@ -20,9 +20,12 @@
   .name
     .header
       .group
-        %p.group__title<test
-        %p.group__member<Member:atsuto7
-      = link_to '#' do
+        %p.group__title
+          = @group.name
+          - @group.users.each do |user|
+            %p.group__member
+              = user.name      
+      = link_to edit_group_path(@group) do
         .edit-btn<Edit    
   .messages
     = render @messages
