@@ -55,7 +55,7 @@ $(function(){
     }
     })
     .fail(function() {
-      alert('error');
+      console.log('error');
     });
   }
 
