@@ -79,13 +79,13 @@ $(function(){
     $('.form__message').val('')
     $('.hidden').val('')
     $('.form__submit').prop('disabled', false); 
+    $('.messages').animate({
+      scrollTop: $('.messages').height() + 20000000
+    })
   })
   .fail(function(){
     alert('error');
     $('.form__submit').prop('disabled', false); 
-  })
-  $('.messages').animate({
-    scrollTop: $('.messages').height() + 20000000
   })
 })
   })

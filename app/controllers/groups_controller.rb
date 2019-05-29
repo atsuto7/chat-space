@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
   end
 
   def edit    
-   
+   @users_id = []
   end
 
   def update

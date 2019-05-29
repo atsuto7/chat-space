@@ -14,20 +14,21 @@ $(function() {
                 return html
    }
    function definedUser(name, id) {
-     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-     <input name='group[user_ids][]' type='hidden' value='${id}'>
+     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8' >
+     <input name='group[user_ids][]' type='hidden' value='${id}' >
      <p class='chat-group-user__name'>${name}</p>
-     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' >削除</div>
+     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${id}" >削除</div>
    </div>`
    return html
    }
-  $(document).on('turbolinks:load', function(){ 
+  $(document).on('turbolinks:load', function(){
+    var users_id = []; 
   $(".chat-group-user-form__input").on("keyup", function() {
     var input = $(".chat-group-user-form__input").val();
     $.ajax({
       type: 'GET',
       url: '/users/search',
-      data: { keyword: input },
+      data: { keyword: input, user_id: users_id},
       dataType: 'json'
     })
   
@@ -55,10 +56,16 @@ $('#user-search-result').on('click', '.chat-group-user__btn', function(){
   var id = $(this).attr('data-user-id')
   var html = definedUser(name, id);
   $('#user-defined-result').append(html)
+  users_id.push(id);
 });
 
 $('#user-defined-result').on('click', '.user-search-remove', function(){
   $(this).parent().remove();
+  var id = $(this).attr('data-user-id')
+  var idx = users_id.indexOf(id);
+  if(idx >= 0){
+  users_id.splice(idx, 1); 
+  }
   });
 })
 });

@@ -14,4 +14,5 @@
         = link_to group_messages_path(group) do
           %p.text-box__group
             = group.name
-          %p.text-box__message<まだメッセージがありません     
+          %p.text-box__message
+            = group.show_last_message
