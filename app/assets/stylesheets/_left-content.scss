@@ -14,7 +14,7 @@
     padding: 0 20px;
     font-weight: bold;
     box-sizing: border-box;
-    
+    display: flex;
    &__user-name {
      font-size: 16px;
      color: #FFFFFF;
@@ -23,14 +23,13 @@
    }   
    &__submit {
      line-height: 100px;
-     
+     padding-left: 140px;
      &__label {
-
+       float: right;
        .fa-edit {
          font-size: 1.3rem;
-         position: absolute;
-         top: 0px;
-         left: 230px;
+         bottom: 0px;
+         right: 10px;
          display: inline-block;
          font-style: normal;
          font-variant-ligatures: normal;
@@ -49,9 +48,8 @@
        }
        .fa-cog {
          font-size: 1.3rem;
-         position: absolute;
-         top: 0px;
-         left: 260px;
+         bottom: 0px;
+         right: 10px;
          display: inline-block;
          font-style: normal;
          font-variant-ligatures: normal;
@@ -63,7 +61,7 @@
          color: white;
          line-height: 100px;
          font-family: FontAwesome;
-        
+         margin-left: 5px;
          text-rendering: auto;
          -webkit-font-smoothing: antialiased;
        }
