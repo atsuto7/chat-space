@@ -47,7 +47,7 @@ $(function(){
         $('.ajax-message').append(html)
       });
         $('.messages').animate({
-          scrollTop: $(document).height()
+          scrollTop: $('messages').height() + 3000000000
         })
       
     }
@@ -84,7 +84,7 @@ $(function(){
     $('.form__submit').prop('disabled', false); 
   })
   $('.messages').animate({
-    scrollTop: $(document).height()
+    scrollTop: $('.messages').height() + 20000000
   })
 })
 
