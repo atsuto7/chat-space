@@ -42,13 +42,16 @@
 
       }
     }
-  }
+  } 
   .messages {
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
     height: calc(100% - 100px - 90px);
+    width: calc(100% - 300px);
     overflow: auto;
+    position: absolute;
+    top: 100px;
     .message {
       .upper-message {
         display: flex;

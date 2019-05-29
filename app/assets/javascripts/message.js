@@ -25,7 +25,7 @@ $(function(){
   var reloadMessages = function() {
     
       var path = location.pathname
-      
+    
     if (path.includes("/messages")){
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message:last').attr("data-id");
@@ -60,6 +60,7 @@ $(function(){
   }
 
   };
+  $(document).on('turbolinks:load', function(){ 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -87,7 +88,7 @@ $(function(){
     scrollTop: $('.messages').height() + 20000000
   })
 })
-
+  })
 // ドメイン以下のパス名が /sample/sample.html の場合に実行する内容 
 setInterval(reloadMessages, 5000);
 })
